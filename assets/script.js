@@ -3,8 +3,19 @@
 // in the html.
 $( document ).ready(function() {
   var showDay = dayjs().format("ddd, MMM D, YYYY h:mm A");
-  
-  $("#currentDay").text(showDay);
+    $("#currentDay").text(showDay);
+    $(".saveBtn").on("click", function() {
+      
+      var text = $(this).siblings(".description").val();
+      var time = $(this).parent().attr("id"); 
+      console.log(this);
+   
+      
+    
+    
+    });
+
+
 });
 $(function () {
     // TODO: Add a listener for click events on the save button. This code should
