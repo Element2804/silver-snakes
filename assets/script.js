@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  //current date and time
   var showDay = dayjs().format("ddd, MMM D, YYYY h:mm A");
     $("#currentDay").text(showDay);
     $(".saveBtn").on("click", function() {
@@ -6,13 +7,13 @@ $( document ).ready(function() {
       var text = $(this).siblings(".description").val();
       var time = $(this).parent().attr("id");
 
-      console.log(text);
+ 
    
       localStorage.setItem(time, text);
     
     
     });
-
+    //gets all hours from local storage
     $("#hour-8 .description").val(localStorage.getItem("hour-8"));
     $("#hour-9 .description").val(localStorage.getItem("hour-9"));
     $("#hour-10 .description").val(localStorage.getItem("hour-10"));
@@ -23,15 +24,48 @@ $( document ).ready(function() {
     $("#hour-15 .description").val(localStorage.getItem("hour-15"));
     $("#hour-16 .description").val(localStorage.getItem("hour-16"));
     $("#hour-17 .description").val(localStorage.getItem("hour-17"));
+    //clear local storage
+    $("#clearBut").on("click", function() {
+      localStorage.clear();
+      })
 
-});
 
-$("#clearBut").on("click", function() {
+      //change color
+      function timeColor() {
 
-localStorage.clear();
+        var timeNow = dayjs().hour();
 
-});
+       $(".time-block").each(function() {
+        var hourBlock = parseInt($(this).attr("id").split("hour-")[1]);
+            
+      
 
-$(function () {
- 
+        if (hourBlock > timeNow) {
+          $(this).addClass("past");
+          $(this).removeClass("future");
+          $(this).removeClass("present");
+      }
+      else if (hourBlock === timeNow) {
+          $(this).removeClass("past");
+          $(this).addClass("present");
+          $(this).removeClass("future");
+      }
+      else {
+          $(this).removeClass("present");
+          $(this).removeClass("past");
+          $(this).addClass("future");
+      
+      }
+      
+        })
+
+    }
+
+      timeColor();
+     
   });
+
+
+
+
+
