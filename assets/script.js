@@ -37,10 +37,10 @@ $( document ).ready(function() {
 
        $(".time-block").each(function() {
         var hourBlock = parseInt($(this).attr("id").split("hour-")[1]);
-            
+           
       
 
-        if (hourBlock > timeNow) {
+        if (hourBlock < timeNow) {
           $(this).addClass("past");
           $(this).removeClass("future");
           $(this).removeClass("present");
@@ -56,7 +56,8 @@ $( document ).ready(function() {
           $(this).addClass("future");
       
       }
-      
+     
+     
         })
 
     }
