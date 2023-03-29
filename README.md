@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-Follow link to get started: https://element2804.github.io/pink-kittens/
+Follow link to get started: https://element2804.github.io/silver-snakes/
 
 Enter information in to the text blocks and refresh the page to see it stay after the save button is pushed
 
